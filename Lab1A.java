@@ -5,7 +5,7 @@ class Lab1A {
   public static void main(String[] args){
     /* För få argument */
     if(args.length != 2){
-      System.err.println("För få eller fel argument");
+      System.err.println("Too few or invalid arguments.");
       System.exit(1);
     }
     
@@ -22,7 +22,7 @@ class Lab1A {
       while ((strLine = br.readLine()) != null) s += " " + strLine;
     } catch(Exception e){
       e.printStackTrace();
-      System.err.println("Något gick fel");
+      System.err.println("An error occured.");
       System.exit(1);
     }
     
