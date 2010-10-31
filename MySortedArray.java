@@ -57,6 +57,5 @@ class MySortedArray<E> implements MySet<E> {
     
     /* Return statement so that the compiler doesn't take a shit and die... */
     return false;
-    
   }
 }
