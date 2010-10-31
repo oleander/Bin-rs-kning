@@ -7,26 +7,6 @@ public class Sort {
   }
   
   /**
-   * Testar vår binärsökning
-   */
-  public static void testing(){
-    int[] list = {1,2,3,4,5,6,7,8,9,10};
-    Sort sort = new Sort(list);
-    boolean result;
-    String print;
-    
-    for (int a = -10; a < 20; a++) {
-      result = sort.member(a);
-      print = "Talet " + a + " finns " + (sort.member(a) ? "" : "ej");
-      if(result){
-        System.out.println("===> " + print);
-      } else {
-        System.out.println(print);
-      }
-    }
-  }
-  
-  /**
    * Meddelar om värdet finns i listan {this.list}
    * @return Boolean Retunerar sant om ingående värde finns i angiven lista {this.list}
    * @param int find Värdet som ska hittas i listan {this.list}
