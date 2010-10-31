@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class FindFile {
+class Lab1A {
   public static void main(String[] args){
     /* För få argument */
     if(args.length != 2){
@@ -9,7 +9,7 @@ class FindFile {
       System.exit(1);
     }
     
-    int find = Integer.valueOf(args[0]);
+    int element = Integer.valueOf(args[0]);
     String strLine;
     String s = "";
     
@@ -34,7 +34,7 @@ class FindFile {
       } catch(NumberFormatException e){}
     }
     
-    Sort sort = new Sort(save);
-    System.out.println(sort.member(find));
+    MySortedIntArray sorted = new MySortedIntArray(save);
+    System.out.println(sorted.member(element));
   }
 }
