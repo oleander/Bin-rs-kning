@@ -7,11 +7,11 @@ class MySortedArray<E> implements MySet<E> {
   
   public MySortedArray(E[] array) {
     this.array = array;
-    this.comparator = new DefaultComparator<E>();
+    this.comparator = new DefaultComparator();
   }
   
   public MySortedArray(E[] array, Comparator comparator) {
-    this(array);
+    this.array = array;
     this.comparator = comparator;
   }
   
@@ -46,7 +46,10 @@ class MySortedArray<E> implements MySet<E> {
       /* Har vi hittar numret? */
       if(x.equals(this.element)) return true;
       /* Om x är mindre än det sökta värdet, letar vi vidare på högersidan av listan */
-      else if (comparator.compare(x, element) > 0) return this.find(mid + 1, high);
+      else if (comparator.compare(x, element) < 0) {
+        System.out.println(x + "<" + element);
+        return this.find(mid + 1, high);
+      }
       /* Annars letar vi vidare i vänstra delen av listan. */
       else return this.find(low, mid - 1);
     } catch (ClassCastException e) {
