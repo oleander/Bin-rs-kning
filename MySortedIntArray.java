@@ -8,7 +8,7 @@ class MySortedIntArray implements MyIntSet {
    * @param int[] array En sorterad lista av integers.
    */
   
-  public MySortedIntArray(int[] array) {
+  public MySortedIntArray(int[] array) {
     this.array = array;
   }
   
@@ -27,7 +27,7 @@ class MySortedIntArray implements MyIntSet {
    * Find() startar sökningen från index 0 till listans längd minus ett...
    */
   private boolean find(){
-    return this.find(0, this.list.length - 1);
+    return this.find(0, this.array.length - 1);
   }
   
   
@@ -43,7 +43,7 @@ class MySortedIntArray implements MyIntSet {
     int mid = (low + high)/2;
     
     /* Hämtar ut mittersta värdet */
-    int x = list[mid];
+    int x = array[mid];
   
     /* Har vi hittar numret? */
     if(x == this.element)     return true;
