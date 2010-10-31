@@ -24,7 +24,9 @@ class MySortedArray<E> implements MySet<E> {
     return find(0, array.length - 1);
   }
   
+  /* A default comparator which compares elements using their natural order. */
   private class DefaultComparator<E> implements Comparator<E> {
+    /* Tries to cast the first element as a comparable */
     public int compare(E a, E b) throws ClassCastException {
       return ((Comparable<E>) a).compareTo(b);
     }
@@ -41,12 +43,17 @@ class MySortedArray<E> implements MySet<E> {
     E x = array[mid];
   
     /* Har vi hittar numret? */
-    if(x.equals(this.element))              return true;
+    if(x.equals(this.element)) return true;
     
     /* Om x är mindre än det sökta värdet, letar vi vidare på högersidan av listan */
-    else if (comparator.compare(x, element) > 0) return this.find(mid + 1, high);
-    
+    else try {
+      if (comparator.compare(x, element) > 0) return this.find(mid + 1, high);
+    } catch (ClassCastException e) {
+      e.printStackTrace();
+      System.err.println("An error occured: objects not comparable.");
+      System.exit(1);
+    }
     /* Annars letar vi vidare på vänstersidan av listan */
-    else                                    return this.find(low, mid - 1);
+    else return this.find(low, mid - 1);
   }
 }
