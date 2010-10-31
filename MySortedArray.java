@@ -42,18 +42,21 @@ class MySortedArray<E> implements MySet<E> {
     /* Hämtar ut mittersta värdet */
     E x = array[mid];
   
-    /* Har vi hittar numret? */
-    if(x.equals(this.element)) return true;
-    
-    /* Om x är mindre än det sökta värdet, letar vi vidare på högersidan av listan */
-    else try {
-      if (comparator.compare(x, element) > 0) return this.find(mid + 1, high);
+    try {
+      /* Har vi hittar numret? */
+      if(x.equals(this.element)) return true;
+      /* Om x är mindre än det sökta värdet, letar vi vidare på högersidan av listan */
+      else if (comparator.compare(x, element) > 0) return this.find(mid + 1, high);
+      /* Annars letar vi vidare i vänstra delen av listan. */
+      else return this.find(low, mid - 1);
     } catch (ClassCastException e) {
       e.printStackTrace();
       System.err.println("An error occured: objects not comparable.");
       System.exit(1);
     }
-    /* Annars letar vi vidare på vänstersidan av listan */
-    else return this.find(low, mid - 1);
+    
+    /* Return statement so that the compiler doesn't take a shit and die... */
+    return false;
+    
   }
 }
