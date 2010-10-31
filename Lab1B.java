@@ -19,14 +19,14 @@ class Lab1B {
     
     try{
       br = new BufferedReader(new FileReader(args[1]));
-      while ((strLine = br.readLine()) != null) s += strLine;
+      while ((strLine = br.readLine()) != null) s += " " + strLine;
     } catch(Exception e){
       e.printStackTrace();
       System.err.println("An error occured.");
       System.exit(1);
     }
     
-    values = s.split("\\s");
+    values = s.trim().split("\\s");
     Integer[] save = new Integer[values.length];
     for(String value : values){
       try {
