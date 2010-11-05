@@ -47,7 +47,6 @@ class MySortedArray<E> implements MySet<E> {
       if(x.equals(this.element)) return true;
       /* Om x är mindre än det sökta värdet, letar vi vidare på högersidan av listan */
       else if (comparator.compare(x, element) < 0) {
-        System.out.println(x + "<" + element);
         return this.find(mid + 1, high);
       }
       /* Annars letar vi vidare i vänstra delen av listan. */

@@ -52,27 +52,6 @@ class MySortedIntArray implements MyIntSet {
     else if(x < this.element) return this.find(mid + 1, high);
     
     /* Annars letar vi vidare på vänstersidan av listan */
-    else                   return this.find(low, mid - 1);
+    else                      return this.find(low, mid - 1);
   }
-  
-  /**
-   * Testar vår binärsökning
-   */
-  public static void testing(){
-    int[] list = {1,2,3,4,5,6,7,8,9,10};
-    MySortedIntArray sorted = new MySortedIntArray(list);
-    boolean result;
-    String print;
-    
-    for (int a = -10; a < 20; a++) {
-      result = sorted.member(a);
-      print = "Talet " + a + " finns " + (sorted.member(a) ? "" : "ej");
-      if(result){
-        System.out.println("===> " + print);
-      } else {
-        System.out.println(print);
-      }
-    }
-  }
-  
 }
