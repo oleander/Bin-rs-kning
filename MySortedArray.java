@@ -5,21 +5,38 @@ class MySortedArray<E> implements MySet<E> {
   private E element;
   private Comparator comparator;
   
+  /**
+   * Konstruktor
+   * @param {E[]} array Listan som ska kontrolleras
+   */
   public MySortedArray(E[] array) {
     this.array = array;
     this.comparator = new DefaultComparator();
   }
   
+  /**
+   * Konstruktor
+   * @param {E[]} array Listan som ska kontrolleras
+   * @param {Comparator} comparator En egen-definerat jämförelse-klass
+   */
   public MySortedArray(E[] array, Comparator comparator) {
     this.array = array;
     this.comparator = comparator;
   }
   
+  /**
+   * Meddelar om värdet finns i listan {this.array}
+   * @return Boolean Returnerar sant om ingående värde finns i angiven lista {this.array}
+   * @param int element Värdet som ska hittas i listan {this.array}
+   */
   public boolean member (E element) {
     this.element = element;
     return find();
   }
   
+  /* Find realiserar en binärsökningsalgoritm. 
+   * Find() startar sökningen från index 0 till listans längd minus ett...
+   */
   private boolean find() {
     return find(0, array.length - 1);
   }
@@ -32,6 +49,9 @@ class MySortedArray<E> implements MySet<E> {
     }
   }
   
+  /*
+   * ... därefter anropas find(low,high) rekursivt tills vi hittar talet i fråga eller vi är säkra på att det inte finns i listan.
+   */
   private boolean find(int low, int high) {
     /* Uppstår endast om det sökta elementet inte finns i listan */
     if(low > high) return false;

@@ -46,6 +46,15 @@ class Testing {
       }
     }
     
+    /* Kontrollerar mot en lista som innehåller samma värden */
+    int[] equals = {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3};
+    sorted = new MySortedIntArray(equals);
+
+    if(sorted.member(4)){
+      System.err.println("Failed (3)");
+      System.exit(1);
+    }
+    
     System.out.println("OK IntArray");
   }
 
@@ -68,9 +77,9 @@ class Testing {
       }
     }
     
+    /* Kontrollerar att vårat värde finns inte finns i en tom lista */
     String[] ref2 = {};
     sorted = new MySortedArray(ref2);
-    /* Kontrollerar att vårat värde finns inte finns i en tom lista */
     for (String comp : list) {
       result = sorted.member(comp);
 
@@ -79,10 +88,10 @@ class Testing {
         System.exit(1);
       }
     }
-      
+    
+    /* Kontrollerar att vårat värde finns inte finns i listan ovan */
     String[] ref3 = {"J", "K", "L", "M", "N", "O", "P", "Q"};
     sorted = new MySortedArray(ref3);
-    /* Kontrollerar att vårat värde finns inte finns i listan ovan */
     for (String comp : list) {
       result = sorted.member(comp);
       
@@ -90,6 +99,14 @@ class Testing {
         System.err.println("Failed (3)");
         System.exit(1);
       }
+    }
+    
+    /* Kontrollerar mot en lista som innehåller samma värden */
+    String[] ref4 = {"J", "J", "J", "J", "J", "J", "J", "J", "J", "J"};
+    sorted = new MySortedArray(ref4);
+    if(sorted.member("I")){
+      System.err.println("Failed (4)");
+      System.exit(1);
     }
     
     System.out.println("OK Array");
