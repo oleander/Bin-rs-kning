@@ -1,0 +1,57 @@
+Laboration 1 - Datastrukturer
+Linus Oleander
+Jesper Josefsson  - 860409-5276
+==============================
+Peter Dybjer har okejat att vi skriver på svenska.
+==============================
+
+Till uppgift A hör filerna:
+
+Lab1A.java            - innehåller en mainmetod som kan anropas med argumenten 
+                        <element> <namn på fil med sorterad lista av integers>
+MyIntSet.java         - interfacet som gavs i uppgiften
+MySortedIntArray.java - implementering av interfacet, innehåller en membermetod som utför binärsökning
+
+Till uppgift B hör filerna:
+
+Lab1B.java            - motsvarar Lab1A.java
+MySet.java            - interface som gavs i uppgiften
+MySortedArray.java    - implementering av interfacet
+                        innehåller även inner class DefaultComparator, som konstruerar en grundkomparator enligt objektens naturliga ordning
+                        
+Gemensamt för båda uppgifterna:
+
+Testing.java          - testfall för båda uppgifter
+
+Vi har inte gjort extrauppgiften.
+
+==============================
+
+Allmänna antaganden:
+
+ - input är en sorterad lista
+ 
+==============================
+
+Tester:
+
+Sökning i tomma listan ger false
+Sökning efter element som finns ger true
+Sökning efter element som inte finns ger false
+Sökning i lista av längden 1 kraschar inte
+Sökning efter negativa värden fungerar
+Lista med endast många förekomster av samma siffra - sökning av annan siffra kraschar inte
+
+Varför räcker detta?
+Så långt som vi kan se just nu har vi täckt in de möjligheter till misslyckande som finns.
+Givetvis kan användaren provocera fram fel genom att t.ex. ge en lista med ord istället för siffror som argument till Lab1A.
+Men då får nog användaren skylla sig själv i detta fall.
+
+==============================
+
+Tidskomplexitet.
+
+Eftersom vi halverar antalet element i söklistan tills vi hittar den sökta elementet kommer tidskomplexiteten att vara logaritmisk.
+Vi utför ett antal jämförelse operationer i varje steg, men de kommer att bilda en summa (n + n + ... + n = xn) vilket "trumfas" av logaritmen i ordobegreppet. Därför påverkar inte antalet jämförelser ordouttrycket.
+
+Alltså T(f) = O(log n)
