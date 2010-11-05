@@ -57,10 +57,9 @@ class Testing {
   public static void testingArray(String[] list){
     MySortedArray sorted = new MySortedArray(list);
     boolean result;
-    String[] ref = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
     
     /* Kontrollerar att vårat värde finns i en helt vanlig lista */
-    for (String comp : ref) {
+    for (String comp : list) {
       result = sorted.member(comp);
       
       if(!result){
@@ -72,7 +71,7 @@ class Testing {
     String[] ref2 = {};
     sorted = new MySortedArray(ref2);
     /* Kontrollerar att vårat värde finns inte finns i en tom lista */
-    for (String comp : ref) {
+    for (String comp : list) {
       result = sorted.member(comp);
 
       if(result){
@@ -84,7 +83,7 @@ class Testing {
     String[] ref3 = {"J", "K", "L", "M", "N", "O", "P", "Q"};
     sorted = new MySortedArray(ref3);
     /* Kontrollerar att vårat värde finns inte finns i listan ovan */
-    for (String comp : ref) {
+    for (String comp : list) {
       result = sorted.member(comp);
       
       if(result){
