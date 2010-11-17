@@ -6,8 +6,8 @@ class Lab1A {
     /* För få argument */
     if(args.length != 2){
       System.err.println("Too few or invalid arguments.\n");
-      System.err.println("Running test case\n\n");
-      MySortedIntArray.testing();
+      // System.err.println("Running test case\n\n");
+      // MySortedIntArray.testing();
       System.exit(1);
     }
     

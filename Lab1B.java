@@ -25,8 +25,12 @@ class Lab1B {
       System.err.println("An error occured.");
       System.exit(1);
     }
-    
+    if (s.trim().length() == 0) {
+      System.err.println("File empty");
+      System.exit(1);
+    }
     values = s.trim().split("\\s");
+    int i = 0;
     Integer[] save = new Integer[values.length];
     for(String value : values){
       try {
