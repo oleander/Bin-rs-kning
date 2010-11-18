@@ -16,6 +16,7 @@ class Lab1B {
     BufferedReader br = null;
     int n = 0;
     String[] values;
+    Integer[] save;
     
     try{
       br = new BufferedReader(new FileReader(args[1]));
@@ -25,17 +26,19 @@ class Lab1B {
       System.err.println("An error occured.");
       System.exit(1);
     }
+    
+    /* Kollar efter en tom lista */
     if (s.trim().length() == 0) {
-      System.err.println("File empty");
-      System.exit(1);
-    }
-    values = s.trim().split("\\s");
-    int i = 0;
-    Integer[] save = new Integer[values.length];
-    for(String value : values){
-      try {
-        save[n++] = Integer.valueOf(value);
-      } catch(NumberFormatException e){}
+      save = new Integer[0];
+    } else {
+      values = s.trim().split("\\s");
+      int i = 0;
+      save = new Integer[values.length];
+      for(String value : values){
+        try {
+          save[n++] = Integer.valueOf(value);
+        } catch(NumberFormatException e){}
+      }
     }
     
     MySortedArray sorted = new MySortedArray(save);
